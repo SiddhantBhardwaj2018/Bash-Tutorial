@@ -2,23 +2,51 @@
 
 # Studying For Loops
 
-for VARIABLE in 1,2,3,4,5...N
+for VARIABLE in 1 2 3 4 5
 do
-    command1
+    echo $VARIABLE
 done
 
-for VARIABLE in file1 file2 file3
+echo "New Loop "
+
+for NEW_VARIABLE in {1..10..2} #{START..END..INCREMENT}
 do
-    command on $VARIABLE
+    echo $NEW_VARIABLE
 done
 
-for OUTPUT in $(Linux-Or-Unix-Command-Here)
+echo "New Loop Again"
+
+#Iterating in a normal for loop
+for (( i=0; i<10; i++ ))
 do
-    command on $OUTPUT
+    echo $i
 done
 
-for (( EXP1; EXP2; EXP3 ))
+echo
+
+#Executing commands in a loop
+for command in ls pwd date
+do  
+    echo "----------$command------------"
+    $command
+done
+
+echo
+
+#Iterating over all files in dir and printing only directories
+for item in *
 do
-    command
-    command1
+   if [ -d $item ]
+   then
+        echo $item
+   fi
+done
+echo
+#Iterating over all files in dir and printing only files
+for item in *
+do
+   if [ -f $item ]
+   then
+        echo $item
+   fi
 done
